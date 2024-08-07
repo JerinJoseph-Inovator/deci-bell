@@ -1,0 +1,111 @@
+.endsemForm {
+margin: 20px;
+display: flex; /* Arrange elements horizontally */
+flex-direction: column; /* Stack elements vertically */
+align-items: center; /* Center elements horizontally */
+padding: 20px;
+border: 1px solid #ddd; /* Optional border */
+border-radius: 5px; /* Optional rounded corners */
+/* Use background color or subtle gradients for the form */
+transform: translateY(50px);
+}
+
+
+
+.endsemForm label {
+  margin-right: 10px;
+}
+
+.endsemForm input[type="date"],
+.endsemForm input[type="time"] {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.endsemForm button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.endsemForm button:hover {
+  background-color: #0056b3;
+}
+
+.datePickerContainer {
+  display: flex; /* Arrange date picker and selected dates side-by-side */
+  margin-bottom: 20px; /* Add spacing between sections */
+  /* flex-direction: column; */
+  overflow: auto;
+  
+}
+
+.datePicker {
+  flex: 1; /* Allow date picker to fill available space */
+  z-index: 10;
+}
+
+.selectedDates {
+  flex: 1;
+  margin-left: 10px; /* Spacing between date picker and list */
+  /* Style the list of selected dates */
+}
+
+.timePickerContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.timeSlot {
+  width: fit-content;
+  padding: 5px 10px;
+  cursor: pointer; /* Indicate clickable element */
+  /* Consider using background color or gradients */
+  border: 1px solid transparent; /* Change on hover */
+  transition: all 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.timeSlot:hover {
+  border-color: #ddd; /* Border on hover */
+  background-color: #eee; /* Optional background change */
+}
+
+.selectedTimeSlot {
+  background-color: #4CAF50; /* Example highlight color */
+  color: white;
+}
+
+
+ul {
+  display: flex;
+  justify-content: flex-start;
+  /* flex-direction: column; */
+  margin-bottom: 45px; /* Add margin for spacing between boxes */
+  display: inline-flex; /* This keeps the text and button together */
+  align-items: center; /* Aligns vertically */
+}
+
+ul li{
+  padding: 0px;
+  margin: 10px;
+}
+
+ul button{
+  margin-left: 10px;
+  background-color: #4CAF50; /* Example button color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; /* Indicate clickable element */
+  }
+
+ul button:hover {
+    opacity: 0.8; /* Add hover effect */
+  }
+

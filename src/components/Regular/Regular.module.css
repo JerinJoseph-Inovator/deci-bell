@@ -1,0 +1,19 @@
+/* ImageDisplay.css */
+
+.imageContainer {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center;
+  margin-top: 130px;
+}
+
+.Image {
+  width: 75%; /* Adjust width as needed */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgb(10, 70, 190);
+  padding: 30px;
+  margin-top: 15px; /* Add margin between images */
+  margin-bottom: 10px; /* Add margin between images */
+}

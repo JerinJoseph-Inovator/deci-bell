@@ -1,0 +1,95 @@
+/* DateSelector.css */
+
+.dateSelector {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .dateInputContainer {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .dateInputContainer input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  .selectedDates {
+    margin-bottom: 10px;
+  }
+  
+  .selectedDate {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .selectedDate span {
+    margin-right: 10px;
+  }
+  
+  .selectedDate button {
+    background-color: #ff6666;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .selectedDate button:hover {
+    background-color: #ff4d4d;
+  }
+  
+  .submitButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .submitButton:hover {
+    background-color: #0056b3;
+    
+  }
+
+  /* EXTRA CSS ADDED 14th March 11:40am */
+  
+  .dateSelectorContainer {
+    display: flex; /* Arrange selectors horizontally */
+    gap: 10px; /* Add spacing between selectors */
+  }
+  
+  .dateSelector {
+    background-color: #f5f5f5; /* Light gray background */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Inner padding */
+  }
+  
+  .dateInputContainer {
+    display: flex;
+    align-items: center; /* Align elements vertically */
+    gap: 5px; /* Spacing between input and button */
+  }
+  
+  .dateRangeInputContainer {
+    display: flex;
+    flex-direction: column; /* Stack labels and inputs vertically */
+    gap: 5px; /* Spacing between labels and inputs */
+  }
+  
+  .selectedDates {
+    display: flex;
+     flex-wrap: wrap;  /*Allow items to wrap */
+  }
+
