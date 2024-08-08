@@ -52,12 +52,13 @@ body{
   }
 
   .logo {
-    width: 270px; /* Adjust width as needed */
+    width: 250px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
+    padding: 7px;
     position: absolute;
     top: 0;
     left: 0;
-    transform: translateX(1200px);
+    transform: translateX(960px);
   }
   
   

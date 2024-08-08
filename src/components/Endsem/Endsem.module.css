@@ -1,16 +1,14 @@
 .endsemForm {
-margin: 20px;
-display: flex; /* Arrange elements horizontally */
-flex-direction: column; /* Stack elements vertically */
-align-items: center; /* Center elements horizontally */
-padding: 20px;
-border: 1px solid #ddd; /* Optional border */
-border-radius: 5px; /* Optional rounded corners */
-/* Use background color or subtle gradients for the form */
-transform: translateY(50px);
+
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transform: translateY(100px);
 }
-
-
 
 .endsemForm label {
   margin-right: 10px;
@@ -35,78 +33,74 @@ transform: translateY(50px);
 }
 
 .datePickerContainer {
-  display: flex; /* Arrange date picker and selected dates side-by-side */
-  margin-bottom: 20px; /* Add spacing between sections */
-  /* flex-direction: column; */
-  overflow: auto;
-  
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .datePicker {
-  flex: 1; /* Allow date picker to fill available space */
+  flex: 1;
   z-index: 10;
 }
 
 .selectedDates {
   flex: 1;
-  margin-left: 10px; /* Spacing between date picker and list */
-  /* Style the list of selected dates */
+  margin-left: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.timePickerContainer {
+.timePicker {
+  padding-top: 25%;
+  z-index: 1000;
+  margin-top: 20px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
+  align-items: flex-start;
 }
-
-.timeSlot {
-  width: fit-content;
-  padding: 5px 10px;
-  cursor: pointer; /* Indicate clickable element */
-  /* Consider using background color or gradients */
-  border: 1px solid transparent; /* Change on hover */
-  transition: all 0.2s ease-in-out; /* Smooth hover effect */
-}
-
-.timeSlot:hover {
-  border-color: #ddd; /* Border on hover */
-  background-color: #eee; /* Optional background change */
-}
-
-.selectedTimeSlot {
-  background-color: #4CAF50; /* Example highlight color */
-  color: white;
-}
-
 
 ul {
   color: #007bff;
+  list-style-type: none;
+  padding: 0;
 }
 
-ul li{
+ul li {
   display: flex;
-  justify-content: flex-start;
-  /* flex-direction: column; */
-  margin-bottom: 45px; /* Add margin for spacing between boxes */
-  display: inline-flex; /* This keeps the text and button together */
-  align-items: center; /* Aligns vertically */
-  padding: 0px;
-  margin: 10px;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-ul button{
+ul button {
   margin-left: 10px;
-  background-color: #4CAF50; /* Example button color */
+  background-color: #4CAF50;
   color: white;
-  padding: 10px 15px;
+  padding: 5px 10px;
   border: none;
   border-radius: 5px;
-  cursor: pointer; /* Indicate clickable element */
-  }
+  cursor: pointer;
+}
 
 ul button:hover {
-    opacity: 0.8; /* Add hover effect */
-  }
+  opacity: 0.8;
+}
 
+.react-datepicker__input-container {
+  width: 100%;
+}
+
+.react-datepicker__time-list {
+  height: auto !important;
+  max-height: 150px;
+
+}
+
+.react-datepicker__time-container {
+  border-left: none;
+  z-index: -1;
+}
