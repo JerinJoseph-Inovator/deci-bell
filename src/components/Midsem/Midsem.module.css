@@ -1,64 +1,89 @@
-.midsemForm {
-    margin: 20px;
-    display: flex; /* Allow slots to fit side-by-side (optional) */
-  /* Other styles for the overall form */
-  }
-  
-  .midsemForm label {
-    margin-right: 10px;
-  }
-  
-  .midsemForm input[type="date"],
-  .midsemForm input[type="time"] {
-    padding: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .midsemForm button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+/* Adjusting the layout for desktop screens */
+.Slot {
+  display: flex; /* Arrange date pickers horizontally */
+  justify-content: space-between; /* Distribute space between them */
+  margin-bottom: 30px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
 
-  
-  .midsemForm button:hover {
-    background-color: #0056b3;
-  }
+.Slot label {
+  margin-bottom: 10px;
+  flex: 1;
+  min-width: 150px; /* Adjust based on preference */
+}
 
-
-.Slot{
-     /* Adjust styles for date pickers within the slot */
-  display: flex; /* Optional for arranging pickers horizontally */
-    margin-bottom: 30px;
-    margin-top: 10px;
+.Slot input {
+  flex: 1;
+  margin-right: 10px; /* Space between inputs */
 }
 
 .Slot span {
-    margin: 10px;
+  margin: 10px;
+  flex: 1;
 }
 
-input[type="checkbox"] {
-    margin-right: 10px; /* Spacing between checkbox and label */
-    appearance: none; /* Remove default checkbox appearance */
-    width: 16px;
-    height: 16px;
-    background-color: #fff; /* Checkbox background color */
-    border: 1px solid #ccc; /* Checkbox border */
-    border-radius: 2px; /* Checkbox rounded corners */
-    cursor: pointer; /* Indicate clickable element */
-  }
-  
-  input[type="checkbox"]:checked {
-    background-color: #4CAF50; /* Checked checkbox background color */
-    border-color: #4CAF50; /* Checked checkbox border color */
-    /* Optional styling for checkmark (replace with your preferred icon) */
-    /* Example using content property: */
-    content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCbG9jayI9Ii0uNzUgLTAuNzUgMTkgMTkiIHZpZXdCbG94PSIxMCAxMCIgdXNucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxwYXRoIGQ9Ik00LjUgNy41bDIuNSAyLjUgNS45LTUuOWwtMS40LTEuNCAzLjYtMy42LTcuNC43eiIvPjwvc3ZnPg==");
-  }
+.ButtonMidsem{
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  .slotContainer label {
-      transform: translate(30px, -20px);
-      font-weight: bold;
-  }
+/* Media query for phones */
+@media (max-width: 700px) {
+body {
+  flex-direction: column;
+  padding: 50px;
+}
+
+.container {
+  top: 10px;
+  left: 10px;
+}
+
+.mode {
+  transform: translateY(-100px); /* Adjust for smaller screens */
+}
+
+select {
+  padding: 10px 18px; /* Adjust padding */
+  font-size: 16px; /* Adjust font size */
+}
+
+.logout {
+  transform: translate(40vh, 10%); /* Adjust transform */
+  padding: 10px 18px; /* Adjust padding */
+  font-size: 16px; /* Adjust font size */
+}
+
+.logo {
+  width: 150px; /* Adjust width for smaller screens */
+  transform: translateX(50vw); /* Center the logo horizontally */
+}
+
+/* Ensure slots stack on smaller screens */
+.Slot {
+    display: block;
+}
+
+.Slot input {
+    margin-right: 0; /* Remove spacing for stacked inputs */
+    margin-bottom: 10px; /* Add space between stacked inputs */
+}
+
+.slotContainer label {
+    transform: translate(0, 0); /* Adjust label position */
+    font-weight: bold;
+    display: block; /* Force labels to stack */
+    margin-bottom: 5px;
+}
+}

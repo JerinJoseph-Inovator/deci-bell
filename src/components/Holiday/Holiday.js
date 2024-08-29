@@ -1,135 +1,99 @@
 import React, { useState } from 'react';
 import style from './Holiday.module.css';
 
-function DateSelector() {
+function Holiday() {
+  const [selectedDates, setSelectedDates] = useState([]);
+  const [singleDate, setSingleDate] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
-  const [selectedDates, setSelectedDates] = useState([]);
-  const [inputDate, setInputDate] = useState('');
-
-  const handleDateChange = (e) => {
-    setInputDate(e.target.value);
-  };
-
-  const handleAddDate = () => {
-    if (inputDate.trim() !== '') {
-      setSelectedDates([...selectedDates, inputDate]);
-      setInputDate('');
+  const addSingleDate = () => {
+    if (singleDate) {
+      setSelectedDates([...selectedDates, singleDate]);
+      setSingleDate('');
     }
   };
 
-  const handleRemoveDate = (dateToRemove) => {
-    setSelectedDates(selectedDates.filter(date => date !== dateToRemove));
-  };
-
-  const handleStartDateChange = (e) => {
-    setStartDate(e.target.value);
-  };
-
-  const handleEndDateChange = (e) => {
-    setEndDate(e.target.value);
-  };
-
-  const handleAddRangeDates = () => {
-    // Validation (optional): Ensure start date is before or equal to end date
-    if (startDate && endDate && new Date(startDate) <= new Date(endDate)) {
-      setSelectedDates([...selectedDates, { startDate, endDate }]); // Add range as an object
+  const addRangeDates = () => {
+    if (startDate && endDate) {
+      const range = `${startDate} to ${endDate}`;
+      setSelectedDates([...selectedDates, range]);
       setStartDate('');
       setEndDate('');
-    } else {
-      alert('Invalid Date Range: Start date must be before or equal to end date.');
     }
   };
 
-  const handleSubmit = () => {
-    // Handle submission logic here with startDate, endDate and selectedDates
-    console.log('Start Date:', startDate);
-    console.log('End Date:', endDate);
-    console.log('Selected Dates:', selectedDates);
+  const removeDate = (indexToRemove) => {
+    const updatedDates = selectedDates.filter((_, index) => index !== indexToRemove);
+    setSelectedDates(updatedDates);
+  };
+
+  const submitDates = () => {
+    console.log('Submitting Dates:', selectedDates);
+    // Add your submission logic here
   };
 
   return (
-    <div className={style.dateSelectorContainer}>
-      <div className={style.dateSelector}> {/* Single Date Selection */}
-        <div className={style.dateInputContainer}>
+    <div className={style.containerHoliday}>
+      <div className={style.leftContainerHoliday}>
+        {/* Select Single Date Section */}
+        <div className={style.boxHoliday}>
+          <h2>Select Single Date</h2>
           <input
             type="date"
-            value={inputDate}
-            onChange={handleDateChange}
+            value={singleDate}
+            onChange={(e) => setSingleDate(e.target.value)}
           />
-          <button onClick={handleAddDate}>Add Date</button>
+          <div className={style.actionsHoliday}>
+            <button onClick={addSingleDate}>Add Date</button>
+          </div>
         </div>
-        <div className={style.selectedDates}>
-        {selectedDates.map((date, index) => (
-  <div key={index} className={style.selectedDate}>
-    {typeof date === 'object' ? (
-      <span>{`${date.startDate} - ${date.endDate}`}</span>
-    ) : (
-      <span>{date}</span>
-    )}
-    <button onClick={() => handleRemoveDate(date)}>Remove</button>
-  </div>
-))}
 
-          <button onClick={handleSubmit} className={style.submitButton}>Submit</button>
+        {/* Select Date Range Section */}
+        <div className={style.boxHoliday}>
+          <h2>Select Dates Range</h2>
+          <div className={style.dateRange}>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              placeholder="Start Date"
+            />
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              placeholder="End Date"
+            />
+          </div>
+          <div className={style.actionsHoliday}>
+            <button onClick={addRangeDates}>Add Dates</button>
+          </div>
         </div>
       </div>
 
-      <div className={style.dateSelector}> {/* Range Selection */}
-        <div className={style.dateRangeInputContainer}> {/* Separate container for range inputs */}
-          <label htmlFor="startDate">Start Date:</label>
-          <input
-            type="date"
-            id="startDate"
-            value={startDate}
-            onChange={handleStartDateChange}
-          />
-          <label htmlFor="endDate">End Date:</label>
-          <input
-            type="date"
-            id="endDate"
-            value={endDate}
-            onChange={handleEndDateChange}
-          />
+      <div className={style.rightContainerHoliday}>
+        <div className={style.boxHoliday}>
+          {/* Holiday Dates Section */}
+          <h2>Holiday Dates</h2>
+          <ul>
+            {selectedDates.map((date, index) => (
+              <li key={index}>
+                {date}
+                <button
+                  className={style.removeButton}
+                  onClick={() => removeDate(index)}
+                >
+                  Remove
+                </button>
+              </li>
+            ))}
+          </ul>
+          <button className={style.submitButton} onClick={submitDates}>Submit Dates</button>
         </div>
-        <button onClick={handleAddRangeDates} className={style.submitButton}>Add Range</button>
-        <button onClick={handleSubmit} className={style.submitButton}>Submit</button>
       </div>
-      
-    {/* Table to display selected dates */}
-    <div className={style.selectedDatesTable}>
-      <h2>Selected Dates</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {selectedDates.map((date, index) => (
-            <tr key={index}>
-              <td>
-                {typeof date === 'object' ? (
-                  `${date.startDate} - ${date.endDate}`
-                ) : (
-                  date
-                )}
-              </td>
-              <td>
-                <button onClick={() => handleRemoveDate(date)}>Remove</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
     </div>
-
-
-    </div>
-
   );
 }
 
-export default DateSelector;
+export default Holiday;

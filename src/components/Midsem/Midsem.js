@@ -4,30 +4,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import style from './Midsem.module.css';
 import axios from 'axios';
 
-function SendJson() {
-  const [data, setData] = useState({
-    key1: 'value1',
-    key2: 'value2',
-  });
-
-  const handleSubmit = async () => {
-    try {
-      const response = await axios.post('http://<raspberry-pi-ip>:5000/receive-json', data);
-      console.log('Response:', response.data);
-    } catch (error) {
-      console.error('Error sending JSON:', error);
-    }
-  };
-
-  return (
-    <div>
-      <button onClick={handleSubmit}>Send JSON</button>
-    </div>
-  );
-}
-
-
-
 function Midsem() {
   const [slots, setSlots] = useState([
     { checked: false, startDate: null, endDate: null, time: null },
@@ -59,10 +35,25 @@ function Midsem() {
     setSlots(updatedSlots);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Slots:', slots);
-    // You can perform further actions with the slots here
+    
+    const dataToSend = slots
+      .filter(slot => slot.checked)
+      .map((slot, index) => ({
+        mode: 1,
+        slot: index + 1,
+        start_date: slot.startDate ? slot.startDate.toLocaleDateString('en-GB') : null,
+        end_date: slot.endDate ? slot.endDate.toLocaleDateString('en-GB') : null,
+        time: slot.time ? slot.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : null,
+      }));
+
+    try {
+      const response = await axios.post('http://192.168.20.160:5000/emergency', dataToSend);
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error sending data:', error);
+    }
   };
 
   return (
@@ -76,45 +67,43 @@ function Midsem() {
               onChange={() => handleSlotChange(index)}
             />
             <label htmlFor={`checkbox-${index}`}>Slot {index + 1}</label>
-      <div className={style.Slot}>
-            <DatePicker
-              selected={slot.startDate}
-              onChange={(date) => handleStartDateChange(date, index)}
-              selectsStart
-              startDate={slot.startDate}
-              endDate={slot.endDate}
-              dateFormat="yyyy-MM-dd"
-              placeholderText="Start Date"
-              disabled={!slot.checked}
-            />
-           
-            <DatePicker
-              selected={slot.endDate}
-              onChange={(date) => handleEndDateChange(date, index)}
-              selectsEnd
-              startDate={slot.startDate}
-              endDate={slot.endDate}
-              minDate={slot.startDate}
-              dateFormat="yyyy-MM-dd"
-              placeholderText="End Date"
-              disabled={!slot.checked}
-            />
-              
-            <DatePicker
-              selected={slot.time}
-              onChange={(time) => handleTimeChange(time, index)}
-              showTimeSelect
-              showTimeSelectOnly
-              timeIntervals={15}
-              dateFormat="h:mm aa"
-              placeholderText="Select Time"
-              disabled={!slot.checked}
-            />
-             </div>
+            <div className={style.Slot}>
+              <DatePicker
+                selected={slot.startDate}
+                onChange={(date) => handleStartDateChange(date, index)}
+                selectsStart
+                startDate={slot.startDate}
+                endDate={slot.endDate}
+                dateFormat="dd-MM-yyyy"
+                placeholderText="Start Date"
+                disabled={!slot.checked}
+              />
+              <DatePicker
+                selected={slot.endDate}
+                onChange={(date) => handleEndDateChange(date, index)}
+                selectsEnd
+                startDate={slot.startDate}
+                endDate={slot.endDate}
+                minDate={slot.startDate}
+                dateFormat="dd-MM-yyyy"
+                placeholderText="End Date"
+                disabled={!slot.checked}
+              />
+              <DatePicker
+                selected={slot.time}
+                onChange={(time) => handleTimeChange(time, index)}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={15}
+                dateFormat="h:mm aa"
+                placeholderText="Select Time"
+                disabled={!slot.checked}
+              />
+            </div>
           </div>
         ))}
         <br />
-        <button type="submit">Submit</button>
+        <button className={style.ButtonMidsem} type="submit">Submit</button>
       </form>
     </div>
   );

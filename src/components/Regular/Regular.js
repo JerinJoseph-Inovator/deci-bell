@@ -2,8 +2,8 @@
 
 import React from 'react';
 import style from './Regular.module.css';
-import im1 from './1.jpeg';
-import im2 from './2.jpeg';
+import im1 from './1.png';
+import im2 from './2.png';
 
 function ImageDisplay() {
   return (

@@ -1,95 +1,109 @@
-/* DateSelector.css */
+/* Holiday.module.css */
 
-.dateSelector {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .dateInputContainer {
-    display: flex;
-    margin-bottom: 10px;
-  }
-  
-  .dateInputContainer input {
-    flex: 1;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-right: 10px;
-  }
-  
-  .selectedDates {
-    margin-bottom: 10px;
-  }
-  
-  .selectedDate {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-  }
-  
-  .selectedDate span {
-    margin-right: 10px;
-  }
-  
-  .selectedDate button {
-    background-color: #ff6666;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .selectedDate button:hover {
-    background-color: #ff4d4d;
-  }
-  
-  .submitButton {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .submitButton:hover {
-    background-color: #0056b3;
-    
-  }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
 
-  /* EXTRA CSS ADDED 14th March 11:40am */
-  
-  .dateSelectorContainer {
-    display: flex; /* Arrange selectors horizontally */
-    gap: 10px; /* Add spacing between selectors */
-  }
-  
-  .dateSelector {
-    background-color: #f5f5f5; /* Light gray background */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px; /* Inner padding */
-  }
-  
-  .dateInputContainer {
-    display: flex;
-    align-items: center; /* Align elements vertically */
-    gap: 5px; /* Spacing between input and button */
-  }
-  
-  .dateRangeInputContainer {
-    display: flex;
-    flex-direction: column; /* Stack labels and inputs vertically */
-    gap: 5px; /* Spacing between labels and inputs */
-  }
-  
-  .selectedDates {
-    display: flex;
-     flex-wrap: wrap;  /*Allow items to wrap */
-  }
+.containerHoliday {
+  transform: translateY(120px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  height: 100vh;
+}
 
+.leftContainerHoliday {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  gap: 20px;
+}
+
+.rightContainerHoliday {
+  width: 50%;
+  padding-left: 35px;
+}
+
+.boxHoliday {
+  background-color: #222;
+  border: 2px solid #444;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.boxHoliday h2 {
+  margin-bottom: 20px;
+}
+
+.actionsHoliday {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actionsHoliday button {
+  padding: 10px;
+  background-color: #6200EA;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.actionsHoliday button:hover {
+  background-color: #3700B3;
+}
+
+.dateRange {
+  display: flex;
+  gap: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.removeButton {
+  background-color: #FF6347;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.removeButton:hover {
+  background-color: #FF4500;
+}
+
+.submitButton {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #6200EA;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #3700B3;
+}

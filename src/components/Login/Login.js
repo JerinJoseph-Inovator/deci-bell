@@ -16,7 +16,7 @@ function Login() {
   const [errorMsg, setErrorMsg] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
-  const handleSubmission = () => {
+  const handleSubmission = () => {  
     if (!values.email || !values.pass) {
       setErrorMsg("Fill all fields");
       return;
@@ -39,7 +39,7 @@ function Login() {
   return (
     <div className={styles.container}>
       <div className={styles.headingBox}>
-        <h2>Login In</h2>
+        <h2>Login</h2>
         <div className={styles.headingBox2}>
           DeciBell Management <br /> System
         </div>
@@ -70,13 +70,13 @@ function Login() {
           <button disabled={submitButtonDisabled} onClick={handleSubmission}>
             Login
           </button>
-          <p style={{ color: "white" }}>
+          {/* <p style={{ color: "white" }}>
             Don't have an account?{" "}
             <span>
               <Link to="/Signup">Sign up</Link>
             </span>{" "}
             today!
-          </p>
+          </p> */}
         </div>
       </div>
     </div>

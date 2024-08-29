@@ -1,26 +1,62 @@
-.endsemForm {
-
-  margin: 20px;
+.ContainerEndsem {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  width: 1200px;
+  box-sizing: border-box;
   transform: translateY(100px);
 }
 
-.endsemForm label {
-  margin-right: 10px;
+.FormEndsem {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
 }
 
-.endsemForm input[type="date"],
-.endsemForm input[type="time"] {
-  padding: 5px;
-  margin-bottom: 10px;
+.LeftContainerEndsem {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.endsemForm button {
+.CalendarContainerEndsem,
+.TimeSelectionContainerEndsem,
+.TimeSlotContainerEndsem,
+.AddSelectionContainerEndsem {
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.SelectedDatesContainerEndsem {
+  width: 400px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+}
+
+h2 {
+  text-align: center;
+}
+
+.CalendarContainerEndsem,
+.TimeSelectionContainerEndsem,
+.TimeSlotContainerEndsem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TimeSlotContainerEndsem {
+  display: flex;
+  justify-content: space-around;
+}
+
+.TimeSlotContainerEndsem button {
+  margin: 10px;
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
@@ -28,79 +64,52 @@
   cursor: pointer;
 }
 
-.endsemForm button:hover {
+.TimeSlotContainerEndsem button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.TimeSlotContainerEndsem button:hover:not(:disabled) {
   background-color: #0056b3;
 }
 
-.datePickerContainer {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 20px;
+.SelectedDatesContainerEndsem table {
   width: 100%;
+  border-collapse: collapse;
 }
 
-.datePicker {
-  flex: 1;
-  z-index: 10;
-}
-
-.selectedDates {
-  flex: 1;
-  margin-left: 10px;
-  max-height: 200px;
-  overflow-y: auto;
+.SelectedDatesContainerEndsem th,
+.SelectedDatesContainerEndsem td {
   border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 8px;
+  text-align: center;
 }
 
-.timePicker {
-  padding-top: 25%;
-  z-index: 1000;
-  margin-top: 20px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-ul {
-  color: #007bff;
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-ul button {
-  margin-left: 10px;
-  background-color: #4CAF50;
+.buttonEndsem {
+  padding: 10px 20px;
+  background-color: #007bff;
   color: white;
-  padding: 5px 10px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
-ul button:hover {
-  opacity: 0.8;
+.buttonEndsem:hover {
+  background-color: #0056b3;
 }
 
-.react-datepicker__input-container {
-  width: 100%;
+.SelectedEndsem {
+  background-color: #28a745;
 }
 
-.react-datepicker__time-list {
-  height: auto !important;
-  max-height: 150px;
-
+.removeButton {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
 }
 
-.react-datepicker__time-container {
-  border-left: none;
-  z-index: -1;
+.removeButton:hover {
+  background-color: #cc0000;
 }

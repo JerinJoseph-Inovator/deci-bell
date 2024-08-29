@@ -46,7 +46,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Navigate to="/Signup" />} />
+          <Route path="/" element={<Navigate to="/Login" />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} /> {/* Add Signup route */}
           <Route path="/Home" element={<Layout><Home /></Layout>}> {/* Wrap Home in Layout */}
