@@ -12,6 +12,7 @@ import Emergency from "./components/Emergency/Emergency";
 import Regular from "./components/Regular/Regular";
 import Holiday from "./components/Holiday/Holiday";
 
+
 function Layout({ children }) {
   return (
     <div>
@@ -43,21 +44,12 @@ function App() {
 
   return (
     <div className="App">
-      <Router basename="/decibell">
+      <Router>
         <Routes>
-          <Route path="/" element={<Navigate to="/Login" />} />
+          <Route path="/decibell" element={<Navigate to="/Login" />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/Signup" element={<Signup />} />
-          <Route 
-            path="/Home/*" 
-            element={
-              <AuthenticatedRoute>
-                <Layout>
-                  <Home />
-                </Layout>
-              </AuthenticatedRoute>
-            }
-          >
+          <Route path="/Signup" element={<Signup />} /> {/* Add Signup route */}
+          <Route path="/Home" element={<Layout><Home /></Layout>}> {/* Wrap Home in Layout */}
             <Route path="Midsem" element={<Midsem />} />
             <Route path="Endsem" element={<Endsem />} />
             <Route path="Emergency" element={<Emergency />} />
@@ -85,7 +77,7 @@ function AuthenticatedRoute({ children }) {
     return unsubscribe;
   }, []);
 
-  return userId ? children : <Navigate to="/Login" />;
+  return userId ? children : <Navigate to="/Home" />;
 }
 
 export default App;
