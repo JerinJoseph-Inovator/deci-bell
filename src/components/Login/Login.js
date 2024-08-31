@@ -16,7 +16,7 @@ function Login() {
   const [errorMsg, setErrorMsg] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
-  const handleSubmission = () => {  
+  const handleSubmission = () => {
     if (!values.email || !values.pass) {
       setErrorMsg("Fill all fields");
       return;
@@ -34,6 +34,13 @@ function Login() {
         setSubmitButtonDisabled(false);
         setErrorMsg(err.message);
       });
+  };
+
+  // Function to handle key press events
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSubmission();
+    }
   };
 
   return (
@@ -54,6 +61,7 @@ function Login() {
               setValues((prev) => ({ ...prev, email: event.target.value }))
             }
             placeholder="Enter email address"
+            onKeyDown={handleKeyPress} // Add the keydown event listener
           />
           <InputControl
             label="Password"
@@ -62,6 +70,7 @@ function Login() {
               setValues((prev) => ({ ...prev, pass: event.target.value }))
             }
             placeholder="Enter Password"
+            onKeyDown={handleKeyPress} // Add the keydown event listener
           />
         </span>
 
