@@ -1,0 +1,89 @@
+/* Adjusting the layout for desktop screens */
+.Slot {
+  display: flex; /* Arrange date pickers horizontally */
+  justify-content: space-between; /* Distribute space between them */
+  margin-bottom: 30px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.Slot label {
+  margin-bottom: 10px;
+  flex: 1;
+  min-width: 150px; /* Adjust based on preference */
+}
+
+.Slot input {
+  flex: 1;
+  margin-right: 10px; /* Space between inputs */
+}
+
+.Slot span {
+  margin: 10px;
+  flex: 1;
+}
+
+.ButtonMidsem{
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Media query for phones */
+@media (max-width: 700px) {
+body {
+  flex-direction: column;
+  padding: 50px;
+}
+
+.container {
+  top: 10px;
+  left: 10px;
+}
+
+.mode {
+  transform: translateY(-100px); /* Adjust for smaller screens */
+}
+
+select {
+  padding: 10px 18px; /* Adjust padding */
+  font-size: 16px; /* Adjust font size */
+}
+
+.logout {
+  transform: translate(40vh, 10%); /* Adjust transform */
+  padding: 10px 18px; /* Adjust padding */
+  font-size: 16px; /* Adjust font size */
+}
+
+.logo {
+  width: 150px; /* Adjust width for smaller screens */
+  transform: translateX(50vw); /* Center the logo horizontally */
+}
+
+/* Ensure slots stack on smaller screens */
+.Slot {
+    display: block;
+}
+
+.Slot input {
+    margin-right: 0; /* Remove spacing for stacked inputs */
+    margin-bottom: 10px; /* Add space between stacked inputs */
+}
+
+.slotContainer label {
+    transform: translate(0, 0); /* Adjust label position */
+    font-weight: bold;
+    display: block; /* Force labels to stack */
+    margin-bottom: 5px;
+}
+}

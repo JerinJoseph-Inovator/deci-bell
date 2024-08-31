@@ -1,0 +1,109 @@
+/* Holiday.module.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.containerHoliday {
+  transform: translateY(120px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  height: 100vh;
+}
+
+.leftContainerHoliday {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  gap: 20px;
+}
+
+.rightContainerHoliday {
+  width: 50%;
+  padding-left: 35px;
+}
+
+.boxHoliday {
+  background-color: #222;
+  border: 2px solid #444;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.boxHoliday h2 {
+  margin-bottom: 20px;
+}
+
+.actionsHoliday {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actionsHoliday button {
+  padding: 10px;
+  background-color: #6200EA;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.actionsHoliday button:hover {
+  background-color: #3700B3;
+}
+
+.dateRange {
+  display: flex;
+  gap: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.removeButton {
+  background-color: #FF6347;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.removeButton:hover {
+  background-color: #FF4500;
+}
+
+.submitButton {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #6200EA;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #3700B3;
+}

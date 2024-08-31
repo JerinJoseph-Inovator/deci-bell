@@ -1,0 +1,31 @@
+/* Emergency.module.css */
+
+.emergencyMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .buttton {
+    background-color: #ff0000; /* Red color */
+    padding: 120px 30px;
+    border-radius: 1000px;
+    display: inline-block;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+  }
+  
+  .buttton button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .buttton:hover {
+    transform: translateY(-7px); /* Floating effect */
+    box-shadow: 0 10px 20px 5px rgb(125, 0, 0); 
+  }
+  

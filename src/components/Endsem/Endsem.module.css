@@ -1,0 +1,115 @@
+.ContainerEndsem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 1200px;
+  box-sizing: border-box;
+  transform: translateY(100px);
+}
+
+.FormEndsem {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+}
+
+.LeftContainerEndsem {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.CalendarContainerEndsem,
+.TimeSelectionContainerEndsem,
+.TimeSlotContainerEndsem,
+.AddSelectionContainerEndsem {
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.SelectedDatesContainerEndsem {
+  width: 400px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+}
+
+h2 {
+  text-align: center;
+}
+
+.CalendarContainerEndsem,
+.TimeSelectionContainerEndsem,
+.TimeSlotContainerEndsem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TimeSlotContainerEndsem {
+  display: flex;
+  justify-content: space-around;
+}
+
+.TimeSlotContainerEndsem button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.TimeSlotContainerEndsem button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.TimeSlotContainerEndsem button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.SelectedDatesContainerEndsem table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.SelectedDatesContainerEndsem th,
+.SelectedDatesContainerEndsem td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.buttonEndsem {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.buttonEndsem:hover {
+  background-color: #0056b3;
+}
+
+.SelectedEndsem {
+  background-color: #28a745;
+}
+
+.removeButton {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.removeButton:hover {
+  background-color: #cc0000;
+}
