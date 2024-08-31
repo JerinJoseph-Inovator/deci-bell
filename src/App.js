@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename="deci-bell">
         <Routes>
           <Route path="/" element={<Navigate to="/Login" />} />
           <Route path="/Login" element={<Login />} />
