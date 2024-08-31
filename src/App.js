@@ -46,10 +46,10 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/decibell" element={<Navigate to="/Login" />} />
+          <Route path="/" element={<Navigate to="/Login" />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/Signup" element={<Signup />} /> {/* Add Signup route */}
-          <Route path="/Home" element={<Layout><Home /></Layout>}> {/* Wrap Home in Layout */}
+          <Route path="/Signup" element={<Signup />} />
+          <Route path="/Home/*" element={<AuthenticatedRoute><Layout><Home /></Layout></AuthenticatedRoute>}>
             <Route path="Midsem" element={<Midsem />} />
             <Route path="Endsem" element={<Endsem />} />
             <Route path="Emergency" element={<Emergency />} />
