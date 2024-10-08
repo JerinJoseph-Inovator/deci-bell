@@ -1,33 +1,18 @@
 {
   "files": {
-<<<<<<< HEAD
     "main.css": "/deci-bell/static/css/main.8f5718c5.css",
-    "main.js": "/deci-bell/static/js/main.1f2db5c2.js",
-=======
-    "main.css": "/deci-bell/static/css/main.41281227.css",
-    "main.js": "/deci-bell/static/js/main.d106ede1.js",
->>>>>>> 83b64faac89325bc32be4d318ecb744eee80a782
+    "main.js": "/deci-bell/static/js/main.384cfaf0.js",
     "static/js/453.4953db96.chunk.js": "/deci-bell/static/js/453.4953db96.chunk.js",
     "static/media/1.png": "/deci-bell/static/media/1.086295a6f63b1a3c90d6.png",
     "static/media/2.png": "/deci-bell/static/media/2.becdbbb471edfa55cad7.png",
     "static/media/logo.jpg": "/deci-bell/static/media/logo.0f1e6cc83e023152590d.jpg",
     "index.html": "/deci-bell/index.html",
-<<<<<<< HEAD
     "main.8f5718c5.css.map": "/deci-bell/static/css/main.8f5718c5.css.map",
-    "main.1f2db5c2.js.map": "/deci-bell/static/js/main.1f2db5c2.js.map",
+    "main.384cfaf0.js.map": "/deci-bell/static/js/main.384cfaf0.js.map",
     "453.4953db96.chunk.js.map": "/deci-bell/static/js/453.4953db96.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8f5718c5.css",
-    "static/js/main.1f2db5c2.js"
-=======
-    "main.41281227.css.map": "/deci-bell/static/css/main.41281227.css.map",
-    "main.d106ede1.js.map": "/deci-bell/static/js/main.d106ede1.js.map",
-    "453.4953db96.chunk.js.map": "/deci-bell/static/js/453.4953db96.chunk.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.41281227.css",
-    "static/js/main.d106ede1.js"
->>>>>>> 83b64faac89325bc32be4d318ecb744eee80a782
+    "static/js/main.384cfaf0.js"
   ]
 }

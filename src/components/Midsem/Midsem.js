@@ -57,7 +57,7 @@ function Midsem() {
       }));
 
     try {
-      const response = await axios.post('http://192.168.241.160:5000/midsem', dataToSend);
+      const response = await axios.post('http://192.168.241.160:443/midsem', dataToSend);
       console.log('Response:', response.data);
     } catch (error) {
       console.error('Error sending data:', error);
