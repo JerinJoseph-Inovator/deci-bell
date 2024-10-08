@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import style from './Holiday.module.css';
+import axios from 'axios';
 
 function Holiday() {
   const [selectedDates, setSelectedDates] = useState([]);
@@ -9,15 +10,14 @@ function Holiday() {
 
   const addSingleDate = () => {
     if (singleDate) {
-      setSelectedDates([...selectedDates, singleDate]);
+      setSelectedDates([...selectedDates, { type: 'single', date: singleDate }]);
       setSingleDate('');
     }
   };
 
   const addRangeDates = () => {
     if (startDate && endDate) {
-      const range = `${startDate} to ${endDate}`;
-      setSelectedDates([...selectedDates, range]);
+      setSelectedDates([...selectedDates, { type: 'range', startDate, endDate }]);
       setStartDate('');
       setEndDate('');
     }
@@ -28,9 +28,25 @@ function Holiday() {
     setSelectedDates(updatedDates);
   };
 
-  const submitDates = () => {
-    console.log('Submitting Dates:', selectedDates);
-    // Add your submission logic here
+  const submitDates = async () => {
+    // Format the data as per the required event format
+    const dataToSend = selectedDates.map((item) => {
+      if (item.type === 'single') {
+        return `0,${item.date}`;
+      } else if (item.type === 'range') {
+        return `0,${item.startDate},${item.endDate}`;
+      }
+      return null;
+    });
+
+    console.log('Submitting Dates:', dataToSend);
+
+    try {
+      const response = await axios.post('http://192.168.241.160:5000/holiday', dataToSend);
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error submitting dates:', error);
+    }
   };
 
   return (
@@ -77,9 +93,9 @@ function Holiday() {
           {/* Holiday Dates Section */}
           <h2>Holiday Dates</h2>
           <ul>
-            {selectedDates.map((date, index) => (
+            {selectedDates.map((item, index) => (
               <li key={index}>
-                {date}
+                {item.type === 'single' ? item.date : `${item.startDate} to ${item.endDate}`}
                 <button
                   className={style.removeButton}
                   onClick={() => removeDate(index)}
