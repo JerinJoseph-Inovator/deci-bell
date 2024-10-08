@@ -35,6 +35,14 @@ function Midsem() {
     setSlots(updatedSlots);
   };
 
+  const convertTo24HourFormat = (time) => {
+    const [hour, minute, period] = time.toLocaleTimeString('en-US').split(/:| /);
+    let hours24 = parseInt(hour);
+    if (period === 'PM' && hours24 !== 12) hours24 += 12;
+    if (period === 'AM' && hours24 === 12) hours24 = 0;
+    return `${hours24}:${minute}`;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -45,11 +53,11 @@ function Midsem() {
         slot: index + 1,
         start_date: slot.startDate ? slot.startDate.toLocaleDateString('en-GB') : null,
         end_date: slot.endDate ? slot.endDate.toLocaleDateString('en-GB') : null,
-        time: slot.time ? slot.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : null,
+        time: slot.time ? convertTo24HourFormat(slot.time) : null, // Convert time to 24-hour format
       }));
 
     try {
-      const response = await axios.post('https://192.168.241.160:5000/midsem', dataToSend);
+      const response = await axios.post('http://192.168.241.160:5000/midsem', dataToSend);
       console.log('Response:', response.data);
     } catch (error) {
       console.error('Error sending data:', error);
@@ -58,16 +66,20 @@ function Midsem() {
 
   return (
     <div className={style.midsemForm}>
-      <form onSubmit={handleSubmit}>
+      <div className={style.header}>
+        <h2 className={style.logoMidsem}>Midsem Exam Slot Selection</h2>
+      </div>
+      <form onSubmit={handleSubmit} className={style.formContainerMidsem}>
         {slots.map((slot, index) => (
-          <div key={index} className={style.slotContainer}>
+          <div key={index} className={style.slotContainerMidsem}>
             <input
               type="checkbox"
               checked={slot.checked}
               onChange={() => handleSlotChange(index)}
+              className={style.inputMidsem}
             />
-            <label htmlFor={`checkbox-${index}`}>Slot {index + 1}</label>
-            <div className={style.Slot}>
+            <label htmlFor={`checkbox-${index}`} className={style.labelMidsem}>Slot {index + 1}</label>
+            <div className={style.SlotMidsem}>
               <DatePicker
                 selected={slot.startDate}
                 onChange={(date) => handleStartDateChange(date, index)}
@@ -94,8 +106,9 @@ function Midsem() {
                 onChange={(time) => handleTimeChange(time, index)}
                 showTimeSelect
                 showTimeSelectOnly
-                timeIntervals={15}
-                dateFormat="h:mm aa"
+                timeIntervals={15} // 15 minutes interval
+                timeCaption="Time"
+                dateFormat="h:mm aa" // am/pm format
                 placeholderText="Select Time"
                 disabled={!slot.checked}
               />

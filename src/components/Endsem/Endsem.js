@@ -69,7 +69,7 @@ function Endsem() {
 
     try {
       // Send the selections to the IP address
-      await fetch('https://192.168.241.160:5000/endsem', {
+      await fetch('http://192.168.241.160:5000/endsem', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

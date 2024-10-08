@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Install axios for making HTTP requests
+import axios from 'axios'; // Ensure axios is installed
 
-import styles from "./Emergency.module.css";
+import styles from './Emergency.module.css';
+
 function Emergency() {
   const [isSending, setIsSending] = useState(false);
 
@@ -14,11 +15,14 @@ function Emergency() {
 
       if (response.status === 200) {
         console.log('Emergency signal sent successfully!');
+        alert('Emergency signal sent successfully!');
       } else {
         console.error('Error sending emergency signal:', response.statusText);
+        alert('Error sending emergency signal. Please try again.');
       }
     } catch (error) {
       console.error('Error sending emergency signal:', error);
+      alert('Error sending emergency signal. Please try again.');
     } finally {
       setIsSending(false); // Reset loading state
     }
@@ -26,10 +30,10 @@ function Emergency() {
 
   return (
     <div className={styles.emergencyMain}>
-      <span className={styles.buttton}> 
-        <button disabled={isSending} onClick={handleClick}>
-        {isSending ? 'Sending Emergency Signal...' : 'Emergency Bell'}
-      </button>
+      <span className={styles.buttonEmergency}> 
+        <button disabled={isSending} onClick={handleClick} className={styles.buttonEmergencyIN}>
+          {isSending ? 'Sending Emergency Signal...' : 'Emergency Bell'}
+        </button>
       </span>
     </div>
   );

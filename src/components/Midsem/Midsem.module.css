@@ -1,89 +1,94 @@
-/* Adjusting the layout for desktop screens */
-.Slot {
-  display: flex; /* Arrange date pickers horizontally */
-  justify-content: space-between; /* Distribute space between them */
-  margin-bottom: 30px;
-  margin-top: 10px;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-.Slot label {
-  margin-bottom: 10px;
-  flex: 1;
-  min-width: 150px; /* Adjust based on preference */
-}
-
-.Slot input {
-  flex: 1;
-  margin-right: 10px; /* Space between inputs */
-}
-
-.Slot span {
-  margin: 10px;
-  flex: 1;
-}
-
-.ButtonMidsem{
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
+/* General layout and dark theme */
+.midsemForm {
+  background-color: #1a1a1a;
   color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 140px; /* Moves the form 140px down */
+}
+
+.header {
   text-align: center;
-  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.logoMidsem {
+  font-size: 24px;
+  font-weight: bold;
+  color: #6200ea;
+  background-color: rgba(216, 216, 216, 0.977); 
+  padding: 5px;
+  border-radius: 5%;
+  /* Match logo color */
+}
+
+.formContainerMidsem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slotContainerMidsem {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.inputMidsem {
+  margin-right: 10px;
+}
+
+.labelMidsem {
+  font-size: 16px;
+  color: #ffcc00;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.SlotMidsem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SlotMidsem input,
+.SlotMidsem .react-datepicker__input-container {
+  color: #fff;
+  background-color: #333;
+  border: 1px solid #fcfcfc;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.ButtonMidsem {
+  background-color: #6200ea;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-/* Media query for phones */
+.ButtonMidsem:hover {
+  background-color: #3700b3;
+}
+
 @media (max-width: 700px) {
-body {
-  flex-direction: column;
-  padding: 50px;
-}
+  .SlotMidsem {
+    flex-direction: column;
+  }
 
-.container {
-  top: 10px;
-  left: 10px;
-}
+  .SlotMidsem input {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 
-.mode {
-  transform: translateY(-100px); /* Adjust for smaller screens */
-}
-
-select {
-  padding: 10px 18px; /* Adjust padding */
-  font-size: 16px; /* Adjust font size */
-}
-
-.logout {
-  transform: translate(40vh, 10%); /* Adjust transform */
-  padding: 10px 18px; /* Adjust padding */
-  font-size: 16px; /* Adjust font size */
-}
-
-.logo {
-  width: 150px; /* Adjust width for smaller screens */
-  transform: translateX(50vw); /* Center the logo horizontally */
-}
-
-/* Ensure slots stack on smaller screens */
-.Slot {
-    display: block;
-}
-
-.Slot input {
-    margin-right: 0; /* Remove spacing for stacked inputs */
-    margin-bottom: 10px; /* Add space between stacked inputs */
-}
-
-.slotContainer label {
-    transform: translate(0, 0); /* Adjust label position */
-    font-weight: bold;
-    display: block; /* Force labels to stack */
-    margin-bottom: 5px;
-}
+  .formContainerMidsem {
+    padding: 10px;
+  }
 }
