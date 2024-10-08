@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/deci-bell/static/css/main.61c914c7.css",
-    "main.js": "/deci-bell/static/js/main.b47e0e98.js",
+    "main.js": "/deci-bell/static/js/main.cbae365a.js",
     "static/js/453.4953db96.chunk.js": "/deci-bell/static/js/453.4953db96.chunk.js",
     "static/media/1.png": "/deci-bell/static/media/1.086295a6f63b1a3c90d6.png",
     "static/media/2.png": "/deci-bell/static/media/2.becdbbb471edfa55cad7.png",
     "static/media/logo.jpg": "/deci-bell/static/media/logo.0f1e6cc83e023152590d.jpg",
     "index.html": "/deci-bell/index.html",
     "main.61c914c7.css.map": "/deci-bell/static/css/main.61c914c7.css.map",
-    "main.b47e0e98.js.map": "/deci-bell/static/js/main.b47e0e98.js.map",
+    "main.cbae365a.js.map": "/deci-bell/static/js/main.cbae365a.js.map",
     "453.4953db96.chunk.js.map": "/deci-bell/static/js/453.4953db96.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.61c914c7.css",
-    "static/js/main.b47e0e98.js"
+    "static/js/main.cbae365a.js"
   ]
 }
