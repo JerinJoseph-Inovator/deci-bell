@@ -10,7 +10,7 @@ function Emergency() {
 
     try {
       const data = { Mode: 5 }; // JSON data to send
-      const response = await axios.post('http://192.168.241.160:5000/emergency', data); // Replace with your Raspberry Pi details
+      const response = await axios.post('https://192.168.241.160:5000/emergency', data); // Replace with your Raspberry Pi details
 
       if (response.status === 200) {
         console.log('Emergency signal sent successfully!');
